@@ -139,7 +139,7 @@ venv.bak/
 # Spyder project settings
 .spyderproject
 .spyproject
-
+  
 # Rope project settings
 .ropeproject
 
@@ -192,3 +192,27 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+
+# Virtual envs
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Secrets & config
+.env
+
+# Database (if using local SQLite)
+*.sqlite3
+*.sqlite3-journal
+
+# VS Code + PyCharm (optional but useful)
+.vscode/
+.idea/
