@@ -1,16 +1,15 @@
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey,relationship, Float, Text, Integer,Date
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 from app.db import Base
 
-
-
 class Campaign(Base):
     __tablename__ = "campaigns"
     
-    id = Column(Integer, primary_key=True)
-    brand_id = Column(ForeignKey("brand_profile.id"), nullable=False)
+    campaign_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    brand_id = Column(ForeignKey("brand_profile.brand_id"), nullable=False)
     
     title = Column(String, nullable=False)
     description = Column(Text)

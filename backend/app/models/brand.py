@@ -1,5 +1,6 @@
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey,relationship
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 from app.db import Base
@@ -19,4 +20,5 @@ class BrandProfile(Base):
     last_modified_by = Column(String)
     is_active = Column(Boolean, default=True)
 
-    user = relationship("Users", back_populates="brand_profile")
+    user = relationship("User", back_populates="brand")
+    campaigns = relationship("Campaign",back_populates ="brand")

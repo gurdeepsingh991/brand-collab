@@ -1,6 +1,6 @@
 import asyncio
 from app.db import engine, Base  
-from app.models import user, brand
+from app.models import user, brand, campaign, influencer,collab_applications, collaboration, influencer_platform,influencer_service
 
 async def create_all_tables():
     print("🧠 Tables SQLAlchemy knows about:", Base.metadata.tables.keys())
