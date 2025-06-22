@@ -3,7 +3,7 @@ A platform where global brands reaches influencers
 
 **BrandCollab** is a full-stack platform that connects social media influencers with brands using a GraphQL-powered Python backend and a React frontend.
 
-**Primary user persona:**
+**Primary user persona:** 
 Small-to-mid-sized Indian D2C brands tired of random influencer deals and low ROI.
 
 **Pain point:**
