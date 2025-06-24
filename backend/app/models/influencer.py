@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
 from sqlalchemy.orm import relationship
 import uuid
-from app.db import Base
+from app.db_base import Base
 
 class InfluencerProfile(Base): 
     __tablename__= "influencer_profile"

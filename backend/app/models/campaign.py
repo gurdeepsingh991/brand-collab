@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
-from app.db import Base
+from app.db_base import Base
 
 class Campaign(Base):
     __tablename__ = "campaigns"
@@ -18,5 +18,6 @@ class Campaign(Base):
     start_date = Column(DateTime)
     end_date = Column(DateTime)
     goals = Column(Text)
+    priority = Column(String, default="normal")
     
     brand = relationship("BrandProfile", back_populates="campaigns")

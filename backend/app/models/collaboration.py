@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
-from app.db import Base
+from app.db_base import Base
 
 class Collaboration(Base):
     __tablename__ = "collaborations"
