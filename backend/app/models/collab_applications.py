@@ -1,5 +1,5 @@
 
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -10,8 +10,7 @@ from app.db_base import Base
 class CollabApplication(Base):
     __tablename__ = "collab_applications"
 
-    application_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    application_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    application_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, server_default=text("gen_random_uuid()"))
     campaign_id = Column(UUID(as_uuid=True), ForeignKey("campaigns.campaign_id"))
     influencer_id = Column(UUID(as_uuid=True), ForeignKey("influencer_profile.influencer_id"))
     pitch = Column(Text)

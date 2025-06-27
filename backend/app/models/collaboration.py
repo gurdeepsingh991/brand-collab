@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -8,7 +8,7 @@ from app.db_base import Base
 class Collaboration(Base):
     __tablename__ = "collaborations"
 
-    collaboration_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    collaboration_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, server_default=text("gen_random_uuid()"))
     application_id = Column(UUID(as_uuid=True), ForeignKey("collab_applications.application_id"), unique=True)
     deliverables = Column(Text)
     agreed_budget = Column(Float)

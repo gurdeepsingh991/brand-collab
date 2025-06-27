@@ -1,5 +1,5 @@
 
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -10,7 +10,7 @@ from app.db_base import Base
 class InfluencerPlatform(Base):
     __tablename__ = "influencer_platforms"
 
-    platform_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    platform_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, server_default=text("gen_random_uuid()"))
     influencer_id = Column(UUID(as_uuid=True), ForeignKey("influencer_profile.influencer_id"))
     platform_name = Column(String, nullable=False)  # e.g. Instagram, TikTok
     no_of_followers = Column(Integer)

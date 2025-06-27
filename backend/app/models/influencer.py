@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date, text
 from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
 from sqlalchemy.orm import relationship
@@ -8,7 +8,7 @@ from app.db_base import Base
 class InfluencerProfile(Base): 
     __tablename__= "influencer_profile"
 
-    influencer_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    influencer_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, server_default=text("gen_random_uuid()"))
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.user_id"))
     city = Column(String)
     country = Column(String)

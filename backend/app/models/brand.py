@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -8,7 +8,7 @@ from app.db_base import Base
 class BrandProfile(Base): 
     __tablename__= "brand_profile"
 
-    brand_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    brand_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, server_default=text("gen_random_uuid()"))
     brand_name = Column(String, nullable=False)
     brand_industry = Column(String)
     brand_type = Column(String)

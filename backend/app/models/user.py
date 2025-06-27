@@ -1,6 +1,6 @@
 # app/models/user.py
 
-from sqlalchemy import Column, String, Boolean, DateTime 
+from sqlalchemy import Column, String, Boolean, DateTime, text 
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -11,7 +11,7 @@ from app.db_base import Base
 class User(Base):
     __tablename__ = "users"
 
-    user_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4,server_default=text("gen_random_uuid()"))
     email = Column(String, unique=True, nullable=False)
     first_name = Column(String)
     middle_name = Column(String)

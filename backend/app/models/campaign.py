@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date
+from sqlalchemy import Column, String, Boolean, DateTime,ForeignKey, Float, Text, Integer,Date, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -8,7 +8,7 @@ from app.db_base import Base
 class Campaign(Base):
     __tablename__ = "campaigns"
     
-    campaign_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    campaign_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4,server_default=text("gen_random_uuid()"))
     brand_id = Column(ForeignKey("brand_profile.brand_id"), nullable=False)
     
     title = Column(String, nullable=False)
@@ -21,3 +21,5 @@ class Campaign(Base):
     priority = Column(String, default="normal")
     
     brand = relationship("BrandProfile", back_populates="campaigns")
+    applications = relationship("CollabApplication", back_populates="campaign")
+
