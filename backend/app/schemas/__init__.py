@@ -1,9 +1,10 @@
-from .user import BrandMutation
+from .user import BrandMutation, InfluencerMutation
 import strawberry
 
 @strawberry.type
-class Mutation(BrandMutation):
+class Mutation(BrandMutation,InfluencerMutation):
     pass
+
 @strawberry.type
 class Query: 
     @strawberry.field
