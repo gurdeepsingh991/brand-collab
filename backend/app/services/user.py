@@ -3,7 +3,7 @@ from app.models.brand import BrandProfile
 from app.db import get_session
 
 from sqlalchemy.exc import IntegrityError
-from datetime import datetime
+from datetime import datetime  
 
 from app.graphql.types.influencer_types import InfluencerSignupInput, InfluencerSignupResponse
 from app.models.influencer import InfluencerProfile
