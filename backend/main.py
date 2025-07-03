@@ -8,7 +8,7 @@ import os
 load_dotenv()
 print("DB URL:", os.getenv("DATABASE_URL"))
 
-
+ 
 @strawberry.type
 class Query: 
     @strawberry.field
